@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+
+# 设置自定义404页面
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# 启用HTTPS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"

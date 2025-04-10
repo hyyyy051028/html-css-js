@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未来旅图 - 专业研学旅行平台</title>
+  <!-- 基础库 - 使用本地文件替代CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- 移除了外部CDN依赖 -->
+  
+  <!-- 自定义样式 - 确保在最后加载以覆盖其他样式 -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modern-styles.css">
+  <link rel="stylesheet" href="placeholder-styles.css">
+  <link rel="stylesheet" href="header-fix.css">
+  <link rel="stylesheet" href="home-background.css">
+  <link rel="stylesheet" href="video-player.css">
+  <link rel="stylesheet" href="sections-fix.css">
+  <link rel="stylesheet" href="gallery-styles.css">
+  <link rel="stylesheet" href="video-placeholder.css">
+  
+  <!-- 关键内联样式，确保样式生效 -->
+  <style>
+    /* 全局变量 */
+    :root {
+      --primary-color: #ff6b6b;
+      --secondary-color: #4ecdc4;
+      --accent-color: #ffbe0b;
+      --dark-color: #2d3436;
+      --light-color: #f9f9f9;
+      --background-color: #f8f4e9; /* 米白色背景 */
+      --text-color: #333;
+      --text-light: #777;
+      --border-radius: 8px;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    /* 添加米白色背景 */
+    body {
+      background-color: var(--background-color);
+    }
+    
+    /* 标题样式 */
+    .heading {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .heading span {
+      font-size: 2.5rem;
+      padding: 0.5rem 2rem;
+      color: var(--dark-color);
+      background: none;
+      border-radius: var(--border-radius);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      font-weight: 700;
+    }
+    
+    .heading span::before {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      height: 15px;
+      width: 100%;
+      background: var(--accent-color);
+      z-index: -1;
+      opacity: 0.5;
+    }
+    
+    /* 学员评价样式 */
+    .review {
+      padding: 5rem 0;
+      background: #f5f0e5; /* 比米白色稍深一点的背景 */
+    }
+    
+    .review-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    .review-intro p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+    
+    .review-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      min-width: 180px;
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.05); /* 添加淡色边框 */
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-stars {
+      color: #ffc107;
+      margin-bottom: 0.5rem;
+    }
+    
+    .testimonial-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+      padding: 0.8rem 1.5rem;
+      background: #fff;
+      border: 1px solid #e0d9c8; /* 与米白色背景协调的淡色边框 */
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+      border-color: var(--primary-color);
+    }
+    
+    .testimonial-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.05); /* 添加淡色边框 */
+    }
+    
+    .testimonial-header {
+      display: flex;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+      border: 3px solid var(--primary-color);
+    }
+    
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .testimonial-meta h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: var(--dark-color);
+    }
+    
+    .testimonial-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-color);
+      font-style: italic;
+    }
+    
+    /* 联系我们样式 */
+    .contact {
+      padding: 5rem 0;
+      background: #fff; /* 保持白色背景，与米白色形成对比 */
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    
+    .info-card {
+      display: flex;
+      background: #f8f4e9; /* 与网站背景相同的米白色 */
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.05); /* 添加淡色边框增强层次感 */
+    }
+    
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+    
+    .contact-form {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.05); /* 添加淡色边框 */
+    }
+    
+    /* 合作伙伴样式 */
+    .partners {
+      padding: 5rem 0;
+      background: #f5f0e5; /* 比米白色稍深一点的背景 */
+    }
+    
+    .partner-item {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      margin-bottom: 1.5rem;
+    }
+    
+    .partner-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    
+    /* 页脚样式 */
+    .footer {
+      background: var(--dark-color);
+      color: #fff;
+      padding-top: 5rem;
+    }
+    
+    .footer-top {
+      padding-bottom: 3rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo h2 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0;
+    }
+    
+    .footer-info p {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links h3, .footer-contact h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+    
+    .footer-links h3::after, .footer-contact h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+    
+    .footer-links ul, .footer-contact ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+      transform: translateX(5px);
+    }
+    
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem 0;
+    }
+    
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .footer-bottom-links a {
+      color: #aaa;
+      margin-left: 1.5rem;
+      text-decoration: none;
+    }
+    
+    /* 按钮样式 */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--primary-color);
+      color: #fff !important;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1); /* 添加淡色边框增强按钮立体感 */
+    }
+    
+    .btn:hover {
+      background: #ff5252;
+      transform: translateY(-3px);
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 992px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        margin-top: 1rem;
+      }
+      
+      .footer-bottom-links a {
+        margin: 0 0.75rem;
+      }
+    }
+  </style>
+  
+  <!-- 移除了外部脚本依赖 -->
+</head>
+
+<body>
+  <!-- 头部导航 -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo"><span>未来</span>旅图</a>
+      <div id="menu-bar" class="fas fa-bars"></div>
+      <nav class="navbar">
+        <a href="#home">首页</a>
+        <a href="#book">研学定制</a>
+        <a href="#packages">研学路线</a>
+        <a href="#services">特色服务</a>
+        <a href="#gallery">研学相册</a>
+        <a href="#review">学员评价</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+      <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+      </div>
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="搜索研学路线...">
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </div>
+  </header>
+
+  <!-- 登录表单 -->
+  <div class="login-form-container">
+    <i class="fas fa-times" id="form-close"></i>
+    <form action="">
+      <h3>用户登录</h3>
+      <div class="form-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" class="box" placeholder="请输入邮箱">
+      </div>
+      <div class="form-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" class="box" placeholder="请输入密码">
+      </div>
+      <div class="remember">
+        <input type="checkbox" id="remember">
+        <label for="remember">记住我</label>
+      </div>
+      <input type="submit" value="登录" class="btn">
+      <div class="links">
+        <p>忘记密码? <a href="#">点击这里</a></p>
+        <p>没有账号? <a href="#">立即注册</a></p>
+      </div>
+    </form>
+  </div>
+
+  <!-- 首页区域 -->
+  <section class="home" id="home">
+    <div class="content" data-aos="fade-up" data-aos-duration="1000">
+      <h3>未来旅图 · 研学之旅</h3>
+      <p>探索知识的旅程，塑造未来的力量</p>
+      <p>和我们一起体验寓教于乐的研学之旅</p>
+      <div class="btn-container">
+        <a href="#packages" class="btn">查看研学路线</a>
+        <a href="#career" class="btn btn-career">开启职业生涯规划</a>
+      </div>
+    </div>
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+  </section>
+
+  <!-- 研学视频展示区 -->
+  <section class="featured-video" id="featured-video">
+    <div class="container">
+      <h1 class="heading">
+        <span>精彩研学视频</span>
+      </h1>
+      
+      <div class="video-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <div class="main-video-container">
+          <video src="images/vid-5.mp4" controls poster="images/video-poster.jpg" class="main-video"></video>
+          <div class="video-controls">
+            <button class="control-btn play-btn"><i class="fas fa-play"></i></button>
+            <button class="control-btn fullscreen-btn"><i class="fas fa-expand"></i></button>
+          </div>
+        </div>
+        <div class="video-info" data-aos="fade-left" data-aos-delay="300">
+          <h3>探索未来的旅程</h3>
+          <div class="video-tags">
+            <span><i class="fas fa-tag"></i> 研学体验</span>
+            <span><i class="fas fa-clock"></i> 5:30</span>
+            <span><i class="fas fa-eye"></i> 2.5k</span>
+          </div>
+          <p>观看我们的精彩研学视频，了解学生们在研学之旅中的收获与成长。这段视频展示了团队建设活动中学生们如何通过合作解决问题，培养领导力和创新思维。</p>
+          <div class="video-actions">
+            <a href="#" class="btn"><i class="fas fa-play-circle"></i> 更多视频</a>
+            <a href="#book" class="btn btn-career"><i class="fas fa-paper-plane"></i> 预约体验</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 研学定制部分 -->
+  <section class="book" id="book">
+    <div class="container">
+      <h1 class="heading">
+        <span>研学定制之旅</span>
+      </h1>
+
+      <div class="row">
+        <div class="image" data-aos="fade-right" data-aos-delay="200">
+          <div class="image-placeholder">图片已移除</div>
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <h3>专属定制</h3>
+              <p>根据您的需求量身定制研学路线</p>
+            </div>
+          </div>
+        </div>
+
+        <form action="" data-aos="fade-left" data-aos-delay="300">
+          <div class="form-header">
+            <h3>填写您的研学需求</h3>
+            <p>我们将根据您的需求提供专业的研学旅行规划</p>
+          </div>
+          
+          <div class="form-group">
+            <label for="theme">研学主题</label>
+            <select id="theme" class="form-control">
+              <option value="">请选择研学主题</option>
+              <option value="science">科技探索</option>
+              <option value="history">历史文化</option>
+              <option value="nature">自然探索</option>
+              <option value="art">艺术体验</option>
+              <option value="career">职业体验</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age">适合年龄段</label>
+              <select id="age" class="form-control">
+                <option value="">请选择年龄段</option>
+                <option value="primary">小学生 (6-12岁)</option>
+                <option value="junior">初中生 (13-15岁)</option>
+                <option value="senior">高中生 (16-18岁)</option>
+                <option value="college">大学生 (18岁以上)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="participants">参与人数</label>
+              <input type="number" id="participants" class="form-control" placeholder="预计参与人数">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">计划时间</label>
+              <input type="date" id="date" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="duration">研学天数</label>
+              <select id="duration" class="form-control">
+                <option value="">请选择研学天数</option>
+                <option value="1">一日研学</option>
+                <option value="2-3">2-3天研学</option>
+                <option value="4-7">4-7天研学</option>
+                <option value="7+">一周以上</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="requirements">特殊需求</label>
+            <textarea id="requirements" class="form-control" placeholder="请描述您的特殊需求或期望..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-block">
+            <i class="fas fa-paper-plane"></i> 提交定制需求
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 研学路线部分 -->
+  <section class="packages" id="packages">
+    <div class="container">
+      <h1 class="heading">
+        <span>特色研学路线</span>
+      </h1>
+      
+      <div class="filter-buttons" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">全部路线</button>
+        <button class="filter-btn" data-filter="science">科技探索</button>
+        <button class="filter-btn" data-filter="nature">自然探索</button>
+        <button class="filter-btn" data-filter="history">历史文化</button>
+        <button class="filter-btn" data-filter="art">艺术体验</button>
+      </div>
+
+      <div class="box-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="box" data-category="science">
+          <div class="image-container">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="discount">
+              <span>-20%</span>
+            </div>
+            <div class="category">
+              <span>科技</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(120)</span>
+            </div>
+            <h3>前沿科技探索之旅</h3>
+            <p>参观顶尖科技实验室，体验机器人编程与人工智能应用，激发创新思维与科学探索精神。</p>
+            <div class="info">
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>3天</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>适合 12-18岁</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>北京</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <div class="price">
+                <span class="old-price">¥1,200</span>
+                <span class="new-price">¥960</span>
+              </div>
+              <a href="#" class="btn">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" data-category="science">
+          <div class="image-container">
+            <img src="images/p-2.jpg" alt="科学实验">
+            <div class="discount">
+              <span>-15%</span>
+            </div>
+            <div class="category">
+              <span>科学</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>(85)</span>
+            </div>
+            <h3>趣味科学实验营</h3>
+            <p>动手做实验，探索物理、化学、生物等领域的科学原理，培养科学思维和实验能力。</p>
+            <div class="info">
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>2天</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>适合 8-15岁</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>上海</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <div class="price">
+                <span class="old-price">¥880</span>
+                <span class="new-price">¥748</span>
+              </div>
+              <a href="#" class="btn">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" data-category="nature">
+          <div class="image-container">
+            <img src="images/p-3.jpg" alt="自然探索">
+            <div class="discount">
+              <span>-10%</span>
+            </div>
+            <div class="category">
+              <span>自然</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(156)</span>
+            </div>
+            <h3>生态自然探索之旅</h3>
+            <p>走进国家自然保护区，在专业导师带领下认识生物多样性，学习生态保护知识。</p>
+            <div class="info">
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>4天</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>适合 10-18岁</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>成都</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <div class="price">
+                <span class="old-price">¥1,500</span>
+                <span class="new-price">¥1,350</span>
+              </div>
+              <a href="#" class="btn">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" data-category="history">
+          <div class="image-container">
+            <img src="images/p-4.jpg" alt="历史文化">
+            <div class="featured">
+              <span>热门</span>
+            </div>
+            <div class="category">
+              <span>历史</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(210)</span>
+            </div>
+            <h3>中华历史文化之旅</h3>
+            <p>参观历史博物馆和文化遗址，通过沉浸式体验活动了解中华五千年文明发展史。</p>
+            <div class="info">
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>5天</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>适合 12-18岁</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>西安</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <div class="price">
+                <span class="old-price">¥1,800</span>
+                <span class="new-price">¥1,620</span>
+              </div>
+              <a href="#" class="btn">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" data-category="art">
+          <div class="image-container">
+            <img src="images/p-5.jpg" alt="艺术体验">
+            <div class="category">
+              <span>艺术</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>(78)</span>
+            </div>
+            <h3>艺术创作与欣赏之旅</h3>
+            <p>参观著名艺术馆，在专业艺术家指导下进行创作实践，培养艺术鉴赏能力和创造力。</p>
+            <div class="info">
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>3天</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>适合 8-16岁</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>杭州</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <div class="price">
+                <span class="old-price">¥1,100</span>
+                <span class="new-price">¥990</span>
+              </div>
+              <a href="#" class="btn">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" data-category="science">
+          <div class="image-container">
+            <img src="images/p-6.jpg" alt="职业体验">
+            <div class="discount">
+              <span>-25%</span>
+            </div>
+            <div class="category">
+              <span>职业</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(95)</span>
+            </div>
+            <h3>未来职业探索营</h3>
+            <p>走进不同行业企业，体验多种职业角色，在专业生涯规划师指导下探索自己的职业兴趣和发展方向。</p>
+            <div class="info">
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>5天</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-user-friends"></i>
+                <span>适合 14-18岁</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>广州</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <div class="price">
+                <span class="old-price">¥2,000</span>
+                <span class="new-price">¥1,500</span>
+              </div>
+              <a href="#" class="btn">查看详情</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="view-all-container" data-aos="fade-up" data-aos-delay="300">
+        <a href="#" class="btn btn-outline">查看全部研学路线 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 职业生涯规划部分 -->
+  <section class="career" id="career">
+    <div class="container">
+      <h1 class="heading">
+        <span>职业生涯规划</span>
+      </h1>
+
+      <div class="row">
+        <div class="image" data-aos="fade-right" data-aos-delay="200">
+          <div class="image-placeholder">图片已移除</div>
+        </div>
+
+        <div class="content" data-aos="fade-left" data-aos-delay="300">
+          <div class="section-title">
+            <h3>为什么选择我们的职业生涯规划服务？</h3>
+            <div class="title-underline"></div>
+          </div>
+          <p>未来旅图研学平台提供专业的职业生涯规划服务，帮助青少年探索自己的兴趣爱好，发现潜力与优势，制定个性化的职业发展路径。</p>
+          
+          <div class="career-features">
+            <div class="feature" data-aos="zoom-in" data-aos-delay="400">
+              <div class="feature-icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <div class="feature-content">
+                <h4>职业测评</h4>
+                <p>使用科学的测评工具，发现个人兴趣、性格与能力特点</p>
+              </div>
+            </div>
+            <div class="feature" data-aos="zoom-in" data-aos-delay="500">
+              <div class="feature-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <div class="feature-content">
+                <h4>一对一指导</h4>
+                <p>专业职业规划师提供个性化指导与建议</p>
+              </div>
+            </div>
+            <div class="feature" data-aos="zoom-in" data-aos-delay="600">
+              <div class="feature-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="feature-content">
+                <h4>真实职场体验</h4>
+                <p>安排真实职场环境体验，了解不同行业和工作内容</p>
+              </div>
+            </div>
+            <div class="feature" data-aos="zoom-in" data-aos-delay="700">
+              <div class="feature-icon">
+                <i class="fas fa-road"></i>
+              </div>
+              <div class="feature-content">
+                <h4>成长路径规划</h4>
+                <p>制定个性化学习与发展路径，明确未来目标与行动计划</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-container">
+            <a href="#contact" class="btn btn-lg">
+              <i class="fas fa-calendar-check"></i> 预约职业规划顾问
+            </a>
+            <a href="#" class="btn btn-outline btn-lg">
+              <i class="fas fa-file-alt"></i> 了解服务详情
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 特色服务部分 -->
+  <section class="services" id="services">
+    <div class="container">
+      <h1 class="heading">
+        <span>特色服务</span>
+      </h1>
+      
+      <div class="services-intro" data-aos="fade-up">
+        <p>我们提供全方位的研学服务，确保每位学生都能获得最佳的研学体验和成长收获</p>
+      </div>
+
+      <div class="services-container">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="service-content">
+            <h3>专业导师团队</h3>
+            <p>由学科专家和教育工作者组成，提供专业的知识讲解和引导，激发学生学习兴趣和探索精神。</p>
+            <a href="#" class="service-link">了解导师团队 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="service-content">
+            <h3>安全保障系统</h3>
+            <p>全程安全监控，专业保险覆盖，24小时医疗支持，确保学生安心探索，家长放心。</p>
+            <a href="#" class="service-link">安全保障详情 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="service-content">
+            <h3>个性化定制</h3>
+            <p>根据学校和学生需求量身定制研学行程，满足不同教育目标和学习需求，提供专属研学方案。</p>
+            <a href="#" class="service-link">定制流程 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <div class="service-content">
+            <h3>全程记录服务</h3>
+            <p>专业摄影师记录学习成长过程，制作精美研学纪念册，留下珍贵的研学回忆和成长记录。</p>
+            <a href="#" class="service-link">查看案例 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="service-content">
+            <h3>研学资料套装</h3>
+            <p>提供专业研学手册、学习资料和笔记本，帮助学生记录和深化学习，提升研学效果。</p>
+            <a href="#" class="service-link">资料样例 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="service-content">
+            <h3>成果展示平台</h3>
+            <p>组织研学成果展示和分享会，提供线上展示平台，展示学生研学成果和收获。</p>
+            <a href="#" class="service-link">查看展示平台 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="services-cta" data-aos="fade-up">
+        <a href="#contact" class="btn btn-lg">
+          <i class="fas fa-headset"></i> 咨询服务详情
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- 研学相册部分 -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <h1 class="heading">
+        <span>精彩研学相册</span>
+      </h1>
+      
+      <div class="gallery-intro" data-aos="fade-up">
+        <p>记录学生们的研学旅程与成长点滴，分享研学中的精彩瞬间与收获</p>
+      </div>
+      
+      <div class="gallery-filter" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="science">科技探索</button>
+        <button class="filter-btn" data-filter="nature">自然探索</button>
+        <button class="filter-btn" data-filter="history">历史文化</button>
+        <button class="filter-btn" data-filter="art">艺术体验</button>
+        <button class="filter-btn" data-filter="career">职业体验</button>
+      </div>
+
+      <div class="gallery-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="gallery-item" data-category="science">
+          <div class="gallery-image">
+            <img src="images/g-1.jpg" alt="科技研学营">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>科技研学营</h3>
+                <p>学生们在机器人实验室体验编程与创新</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 科技</span>
+              <span><i class="fas fa-map-marker-alt"></i> 北京</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>142</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="nature">
+          <div class="gallery-image">
+            <img src="images/g-2.jpg" alt="自然探索营">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>自然探索营</h3>
+                <p>在国家自然保护区学习生态知识</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 自然</span>
+              <span><i class="fas fa-map-marker-alt"></i> 成都</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>98</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="history">
+          <div class="gallery-image">
+            <img src="images/g-3.jpg" alt="历史文化之旅">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>历史文化之旅</h3>
+                <p>参观博物馆，了解历史文化遗产</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 历史</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>76</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="science">
+          <div class="gallery-image">
+            <img src="images/g-4.jpg" alt="科学实验课">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>科学实验课</h3>
+                <p>动手做实验，探索科学奥秘</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 科学</span>
+              <span><i class="fas fa-map-marker-alt"></i> 上海</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>112</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="art">
+          <div class="gallery-image">
+            <img src="images/g-5.jpg" alt="艺术创作营">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>艺术创作营</h3>
+                <p>探索艺术创作，发现美的力量</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 艺术</span>
+              <span><i class="fas fa-map-marker-alt"></i> 杭州</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>89</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="career">
+          <div class="gallery-image">
+            <img src="images/g-6.jpg" alt="团队建设活动">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>团队建设活动</h3>
+                <p>培养团队协作精神与领导力</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 团队</span>
+              <span><i class="fas fa-map-marker-alt"></i> 深圳</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>105</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="career">
+          <div class="gallery-image">
+            <img src="images/g-7.jpg" alt="职业体验日">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>职业体验日</h3>
+                <p>走进企业，体验不同职业角色</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 职业</span>
+              <span><i class="fas fa-map-marker-alt"></i> 广州</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>67</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="science">
+          <div class="gallery-image">
+            <img src="images/g-8.jpg" alt="研学成果展">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>研学成果展</h3>
+                <p>展示学生研学项目的创新成果</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 成果</span>
+              <span><i class="fas fa-map-marker-alt"></i> 南京</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>94</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="history">
+          <div class="gallery-image">
+            <img src="images/g-9.jpg" alt="研学分享会">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>研学分享会</h3>
+                <p>学生们分享研学旅行的收获与感悟</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 分享</span>
+              <span><i class="fas fa-map-marker-alt"></i> 重庆</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>83</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="science">
+          <div class="gallery-image">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>科学实验课</h3>
+                <p>在实验室中进行有趣的科学实验</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 科学</span>
+              <span><i class="fas fa-map-marker-alt"></i> 上海</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>87</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="art">
+          <div class="gallery-image">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>艺术创作营</h3>
+                <p>学生们在艺术家指导下进行创作</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 艺术</span>
+              <span><i class="fas fa-map-marker-alt"></i> 杭州</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>112</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="nature">
+          <div class="gallery-image">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>团队建设活动</h3>
+                <p>通过户外挑战培养团队合作精神</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 团建</span>
+              <span><i class="fas fa-map-marker-alt"></i> 深圳</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>78</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="career">
+          <div class="gallery-image">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>职业体验日</h3>
+                <p>在企业中体验不同职业的工作内容</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 职业</span>
+              <span><i class="fas fa-map-marker-alt"></i> 广州</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>94</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="science">
+          <div class="gallery-image">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>研学成果展</h3>
+                <p>学生们展示研学旅行中的收获和成果</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 成果</span>
+              <span><i class="fas fa-map-marker-alt"></i> 北京</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>126</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="history">
+          <div class="gallery-image">
+            <img src="images/p-1.jpg" alt="科技探索">
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>研学分享会</h3>
+                <p>学生们分享研学之旅中的精彩知识与感想</p>
+                <a href="#" class="gallery-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span><i class="fas fa-tag"></i> 分享</span>
+              <span><i class="fas fa-map-marker-alt"></i> 上海</span>
+            </div>
+            <div class="gallery-actions">
+              <button class="like-btn"><i class="far fa-heart"></i> <span>108</span></button>
+              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="gallery-more" data-aos="fade-up">
+        <a href="#" class="btn btn-outline">查看更多研学相册 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+  <!-- 学员评价部分 -->
+  <section class="review" id="review">
+    <div class="container">
+      <h1 class="heading">
+        <span>学员真实评价</span>
+      </h1>
+      
+      <div class="review-intro" data-aos="fade-up">
+        <p>听听我们的学员、家长和教师分享他们的研学体验和收获</p>
+      </div>
+      
+      <div class="review-stats" data-aos="fade-up">
+        <div class="stat-item">
+          <div class="stat-number">4.8</div>
+          <div class="stat-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="stat-label">平均评分</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98<span>%</span></div>
+          <div class="stat-label">推荐率</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5000<span>+</span></div>
+          <div class="stat-label">服务学员</div>
+        </div>
+      </div>
+
+      <div class="testimonials-container" data-aos="fade-up">
+        <div class="testimonial-tabs">
+          <button class="tab-btn active" data-tab="students">学生评价</button>
+          <button class="tab-btn" data-tab="parents">家长反馈</button>
+          <button class="tab-btn" data-tab="teachers">教师评价</button>
+        </div>
+        
+        <div class="swiper-container review-slider">
+          <div class="swiper-wrapper">
+            <!-- 学生评价 -->
+            <div class="swiper-slide" data-category="students">
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="images/p-1.jpg" alt="科技探索">
+                  </div>
+                  <div class="testimonial-meta">
+                    <h3>张晨涛</h3>
+                    <div class="testimonial-info">
+                      <span>初二学生</span>
+                      <span>科技研学营</span>
+                    </div>
+                    <div class="testimonial-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-content">
+                  <p>“科技研学营是我参加过的最棒的活动！我在那里学会了机器人编程，还结交了很多志同道合的朋友。导师们非常耐心，帮助我解决了很多难题。这次经历开阔了我的视野，让我对未来的科技发展充满了期待！”</p>
+                </div>
+                <div class="testimonial-date">
+                  <span>2025年5月</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="students">
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="images/p-1.jpg" alt="科技探索">
+                  </div>
+                  <div class="testimonial-meta">
+                    <h3>刘一帆</h3>
+                    <div class="testimonial-info">
+                      <span>高一学生</span>
+                      <span>职业体验营</span>
+                    </div>
+                    <div class="testimonial-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-content">
+                  <p>“参加职业体验营是我高中生活中最重要的决定之一。通过这次研学，我有机会实地体验了三个不同的职业领域，这帮助我更清晰地认识到自己的兴趣和优势。现在我对未来的大学专业选择和职业规划有了更明确的方向。”</p>
+                </div>
+                <div class="testimonial-date">
+                  <span>2025年4月</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 家长评价 -->
+            <div class="swiper-slide" data-category="parents">
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="images/p-1.jpg" alt="科技探索">
+                  </div>
+                  <div class="testimonial-meta">
+                    <h3>王娜娜妈妈</h3>
+                    <div class="testimonial-info">
+                      <span>学生家长</span>
+                      <span>历史文化研学</span>
+                    </div>
+                    <div class="testimonial-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-content">
+                  <p>“作为家长，我非常感谢未来旅图给我女儿提供的这次历史文化研学体验。她从小对历史就有兴趣，但这次研学后她的热情更加浓厚了。最让我欣慰的是，研学团队非常注重安全和教育质量，每天都会发送活动照片和总结，让我们家长安心又放心。”</p>
+                </div>
+                <div class="testimonial-date">
+                  <span>2025年3月</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 教师评价 -->
+            <div class="swiper-slide" data-category="teachers">
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="images/p-1.jpg" alt="科技探索">
+                  </div>
+                  <div class="testimonial-meta">
+                    <h3>李晨老师</h3>
+                    <div class="testimonial-info">
+                      <span>初中地理教师</span>
+                      <span>带队教师</span>
+                    </div>
+                    <div class="testimonial-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-content">
+                  <p>“作为一名带队教师，我已经组织学生参加过多次研学旅行，但未来旅图的服务是最专业的。他们的课程设计充分结合了教育大纲和实践体验，让学生们在愉快的气氛中学习到课堂上很难传授的知识。研学回来后，学生们的学习热情和团队合作能力都有明显提升。”</p>
+                </div>
+                <div class="testimonial-date">
+                  <span>2025年2月</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 添加导航按钮 -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      
+      <div class="review-cta" data-aos="fade-up">
+        <a href="#" class="btn btn-outline">查看更多评价 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+  <!-- 联系我们 -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h1 class="heading">
+        <span>联系我们</span>
+      </h1>
+      
+      <div class="contact-intro" data-aos="fade-up">
+        <p>我们期待与您沟通，为您提供专业的研学旅行规划与咨询服务</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="card-content">
+              <h3>总部地址</h3>
+              <p>北京市海淀区中关村大街 15 号创业大厦 B 座 5 层</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="card-content">
+              <h3>电话咨询</h3>
+              <p>400-888-7766 (工作日 9:00-18:00)</p>
+              <p>138-8888-9999 (紧急联系)</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="card-content">
+              <h3>电子邮箱</h3>
+              <p>info@futuretravelmap.com</p>
+              <p>service@futuretravelmap.com</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="card-content">
+              <h3>工作时间</h3>
+              <p>周一至周五: 9:00 - 18:00</p>
+              <p>周六: 10:00 - 16:00 (预约制)</p>
+            </div>
+          </div>
+          
+          <div class="social-media">
+            <h3>关注我们</h3>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="fab fa-weixin"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-weibo"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form" data-aos="fade-left" data-aos-delay="300">
+          <div class="form-header">
+            <h3>发送咨询</h3>
+            <p>请填写下列表单，我们将在 24 小时内回复您的咨询</p>
+          </div>
+          
+          <form action="" class="form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="organization">学校/机构名称</label>
+                <input type="text" id="organization" class="form-control" placeholder="请输入学校或机构名称">
+              </div>
+              
+              <div class="form-group">
+                <label for="contact-name">联系人姓名</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="请输入您的姓名">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">电子邮箱</label>
+                <input type="email" id="email" class="form-control" placeholder="请输入您的电子邮箱">
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">联系电话</label>
+                <input type="tel" id="phone" class="form-control" placeholder="请输入您的联系电话">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="inquiry-type">咨询类型</label>
+                <select id="inquiry-type" class="form-control">
+                  <option value="">请选择咨询类型</option>
+                  <option value="school">学校研学定制</option>
+                  <option value="parent">家长咨询</option>
+                  <option value="cooperation">合作洽谈</option>
+                  <option value="feedback">意见反馈</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="route">意向研学路线</label>
+                <input type="text" id="route" class="form-control" placeholder="请输入您感兴趣的研学路线">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">需求描述</label>
+              <textarea id="message" class="form-control" rows="5" placeholder="请详细描述您的需求或疑问..."></textarea>
+            </div>
+            
+            <div class="form-group form-check">
+              <input type="checkbox" id="privacy" class="form-check-input">
+              <label for="privacy" class="form-check-label">我已阅读并同意<a href="#">隐私政策</a>和<a href="#">服务条款</a></label>
+            </div>
+            
+            <button type="submit" class="btn btn-block">
+              <i class="fas fa-paper-plane"></i> 提交咨询
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="map-container" data-aos="fade-up">
+        <h3>我们的位置</h3>
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878459418!3d40.74076737932881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzI2LjgiTiA3NMKwMDAnMDkuMCJX!5e0!3m2!1sen!2sus!4v1555196958019!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌赞助 -->
+  <section class="brand-container">
+
+    <div class="swiper-container brand-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 合作伙伴 -->
+  <section class="partners" id="partners">
+    <div class="container">
+      <h1 class="heading">
+        <span>合作伙伴</span>
+      </h1>
+      
+      <div class="partners-intro" data-aos="fade-up">
+        <p>感谢这些优秀的机构和企业与我们携手共同推动研学教育的发展</p>
+      </div>
+      
+      <div class="partners-grid" data-aos="fade-up">
+        <div class="partner-category">
+          <h3>教育机构</h3>
+          <div class="partner-list">
+            <div class="partner-item">
+              <img src="images/1.jpg" alt="教育机构合作伙伴">
+              <div class="partner-overlay">
+                <h4>北京师范大学</h4>
+              </div>
+            </div>
+            <div class="partner-item">
+              <img src="images/2.jpg" alt="教育机构合作伙伴">
+              <div class="partner-overlay">
+                <h4>清华大学</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="partner-category">
+          <h3>科技企业</h3>
+          <div class="partner-list">
+            <div class="partner-item">
+              <img src="images/3.jpg" alt="科技企业合作伙伴">
+              <div class="partner-overlay">
+                <h4>华为技术</h4>
+              </div>
+            </div>
+            <div class="partner-item">
+              <img src="images/4.jpg" alt="科技企业合作伙伴">
+              <div class="partner-overlay">
+                <h4>腾讯科技</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="partner-category">
+          <h3>文化机构</h3>
+          <div class="partner-list">
+            <div class="partner-item">
+              <img src="images/5.jpg" alt="文化机构合作伙伴">
+              <div class="partner-overlay">
+                <h4>国家博物馆</h4>
+              </div>
+            </div>
+            <div class="partner-item">
+              <img src="images/6.jpg" alt="文化机构合作伙伴">
+              <div class="partner-overlay">
+                <h4>故宫博物院</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="become-partner" data-aos="fade-up">
+        <h3>您想成为我们的合作伙伴吗？</h3>
+        <p>我们期待与更多有责任感的机构和企业合作，共同为青少年提供优质的研学体验</p>
+        <a href="#contact" class="btn">立即联系我们</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 页脚部分 -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-info">
+            <div class="footer-logo">
+              <i class="fas fa-map-marked-alt" style="font-size: 2.5rem; color: var(--primary-color); margin-right: 1rem;"></i>
+              <h2>未来旅图</h2>
+            </div>
+            <p>未来旅图是一家专注于青少年研学旅行的专业机构，致力于为学生提供优质的研学路线和深度游学体验。我们相信通过游学结合的方式，可以激发学生的学习热情和创造力。</p>
+            <div class="footer-social">
+              <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h3>快速链接</h3>
+            <ul>
+              <li><a href="#home"><i class="fas fa-chevron-right"></i> 首页</a></li>
+              <li><a href="#packages"><i class="fas fa-chevron-right"></i> 研学路线</a></li>
+              <li><a href="#career"><i class="fas fa-chevron-right"></i> 职业规划</a></li>
+              <li><a href="#services"><i class="fas fa-chevron-right"></i> 服务介绍</a></li>
+              <li><a href="#gallery"><i class="fas fa-chevron-right"></i> 精彩瞬间</a></li>
+              <li><a href="#review"><i class="fas fa-chevron-right"></i> 学员评价</a></li>
+              <li><a href="#contact"><i class="fas fa-chevron-right"></i> 联系我们</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h3>研学主题</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 科技创新研学</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 历史文化研学</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 自然生态研学</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 美育艺术研学</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 综合实践研学</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 国际文化交流</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> 职业生涯体验</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h3>联系信息</h3>
+            <ul>
+              <li><i class="fas fa-map-marker-alt"></i> <span>北京市海淀区中关村大街 15 号创业大厦 B 座 5 层</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>400-888-7766</span></li>
+              <li><i class="fas fa-envelope"></i> <span>info@futuretravelmap.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>工作时间: 周一至周五 9:00-18:00</span></li>
+            </ul>
+            <div class="footer-newsletter">
+              <h4>订阅我们的新闻通讯</h4>
+              <form action="" class="newsletter-form">
+                <input type="email" placeholder="输入您的电子邮箱">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <div class="copyright">
+            <p>&copy; 2025 未来旅图 | 研学旅行专家. 版权所有 | 中国教育部备案许可证号: XXXXX</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="#">隐私政策</a>
+            <a href="#">服务条款</a>
+            <a href="#">常见问题</a>
+            <a href="#">网站地图</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 回到顶部按钮 -->
+    <a href="#home" class="scroll-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </footer>
+
+  <!-- 使用简化版脚本替代外部依赖 -->
+  <script src="simplified-script.js"></script>
+  <!-- 图片修复脚本 -->
+  <script src="fix-images.js"></script>
+  <!-- 部署修复脚本 -->
+  <script src="deploy-fix.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>职业生涯规划</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#4CAF50" offset="0%"></stop>
+            <stop stop-color="#2E7D32" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFA500" offset="0%"></stop>
+            <stop stop-color="#FF8C00" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#2196F3" offset="0%"></stop>
+            <stop stop-color="#1565C0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 背景 -->
+        <rect fill="#F5F5F5" x="0" y="0" width="800" height="600" rx="10"></rect>
+        
+        <!-- 道路 -->
+        <path d="M100,500 C200,450 300,550 400,450 C500,350 600,450 700,400" stroke="#BDBDBD" stroke-width="15" stroke-linecap="round"></path>
+        
+        <!-- 里程碑1 -->
+        <circle fill="url(#linearGradient-1)" cx="150" cy="480" r="30"></circle>
+        <text font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle" x="150" y="485">探索</text>
+        
+        <!-- 里程碑2 -->
+        <circle fill="url(#linearGradient-2)" cx="300" cy="500" r="30"></circle>
+        <text font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle" x="300" y="505">体验</text>
+        
+        <!-- 里程碑3 -->
+        <circle fill="url(#linearGradient-3)" cx="450" cy="430" r="30"></circle>
+        <text font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle" x="450" y="435">规划</text>
+        
+        <!-- 里程碑4 -->
+        <circle fill="#9C27B0" cx="600" cy="450" r="30"></circle>
+        <text font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle" x="600" y="455">成长</text>
+        
+        <!-- 人物 -->
+        <g transform="translate(350, 150)">
+            <!-- 头部 -->
+            <circle fill="#FFD54F" cx="50" cy="50" r="40"></circle>
+            <!-- 眼睛 -->
+            <circle fill="#333" cx="35" cy="40" r="5"></circle>
+            <circle fill="#333" cx="65" cy="40" r="5"></circle>
+            <!-- 嘴巴 -->
+            <path d="M35,65 C45,75 55,75 65,65" stroke="#333" stroke-width="3" stroke-linecap="round"></path>
+            <!-- 身体 -->
+            <rect fill="#4CAF50" x="30" y="90" width="40" height="60" rx="5"></rect>
+            <!-- 手臂 -->
+            <rect fill="#FFD54F" x="10" y="100" width="20" height="10" rx="5"></rect>
+            <rect fill="#FFD54F" x="70" y="100" width="20" height="10" rx="5"></rect>
+            <!-- 腿部 -->
+            <rect fill="#2196F3" x="30" y="150" width="15" height="40" rx="5"></rect>
+            <rect fill="#2196F3" x="55" y="150" width="15" height="40" rx="5"></rect>
+        </g>
+        
+        <!-- 指南针 -->
+        <g transform="translate(600, 200)">
+            <circle fill="#FFFFFF" stroke="#333" stroke-width="2" cx="50" cy="50" r="45"></circle>
+            <circle fill="#F5F5F5" cx="50" cy="50" r="5"></circle>
+            <line x1="50" y1="50" x2="50" y2="15" stroke="#E53935" stroke-width="3" stroke-linecap="round"></line>
+            <line x1="50" y1="50" x2="85" y2="50" stroke="#333" stroke-width="2" stroke-linecap="round"></line>
+            <text font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle" x="50" y="20">N</text>
+            <text font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle" x="50" y="85">S</text>
+            <text font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle" x="15" y="52">W</text>
+            <text font-family="Arial" font-size="12" font-weight="bold" fill="#333" text-anchor="middle" x="85" y="52">E</text>
+        </g>
+        
+        <!-- 放大镜 -->
+        <g transform="translate(150, 200)">
+            <circle fill="#FFFFFF" stroke="#333" stroke-width="3" cx="40" cy="40" r="30"></circle>
+            <line x1="60" y1="60" x2="90" y2="90" stroke="#333" stroke-width="5" stroke-linecap="round"></line>
+        </g>
+        
+        <!-- 标题 -->
+        <text font-family="Arial" font-size="36" font-weight="bold" fill="#333" text-anchor="middle" x="400" y="80">职业生涯规划之旅</text>
+        <text font-family="Arial" font-size="20" font-weight="normal" fill="#666" text-anchor="middle" x="400" y="120">探索 · 体验 · 规划 · 成长</text>
+    </g>
+</svg>

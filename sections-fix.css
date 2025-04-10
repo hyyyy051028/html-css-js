@@ -1,0 +1,270 @@
+/* 职业生涯规划和特色服务部分样式优化 */
+
+/* 通用标题样式优化 */
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading span {
+  font-size: 2.5rem;
+  padding: 0.5rem 2rem;
+  color: var(--dark-color);
+  background: none;
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+}
+
+.heading span::before {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  height: 15px;
+  width: 100%;
+  background: var(--accent-color);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* 职业生涯规划部分样式优化 */
+.career {
+  padding: 5rem 0;
+  background-color: #fff;
+}
+
+.career .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.career .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.career .image {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.career .content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.career .section-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.career .section-title h3 {
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.career .title-underline {
+  height: 4px;
+  width: 80px;
+  background: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.career p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.career-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.career .feature {
+  display: flex;
+  align-items: flex-start;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.career .feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.career .feature-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.career .feature-icon i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.career .feature-content h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.career .feature-content p {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* 特色服务部分样式优化 */
+.services {
+  padding: 5rem 0;
+  background-color: #f8f4e9;
+}
+
+.services .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.services-intro p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto 1rem;
+}
+
+.service-icon i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.service-content {
+  padding: 1.5rem 2rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  text-align: center;
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  flex: 1;
+}
+
+.service-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.service-link:hover {
+  color: #ff5252;
+}
+
+.service-link i {
+  transition: transform 0.3s ease;
+}
+
+.service-link:hover i {
+  transform: translateX(5px);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .career .row {
+    flex-direction: column;
+  }
+  
+  .career .image, 
+  .career .content {
+    width: 100%;
+  }
+  
+  .service-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,111 @@
+/* 首页背景样式修改 */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('images/g-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast; /* 提高图片清晰度 */
+}
+
+/* 添加波浪效果 */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('https://i.imgur.com/ZAts69f.png');
+  background-size: 1000px 100px;
+}
+
+.wave.wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+.wave.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+
+/* 内容样式增强 */
+.home .content {
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  margin: 0 1rem;
+}
+
+.home .content h3 {
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+  margin-bottom: 1.5rem;
+}
+
+.home .content p {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: .3rem 0;
+  text-shadow: 0 .2rem .3rem rgba(0, 0, 0, .3);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .home .content h3 {
+    font-size: 2.5rem;
+  }
+  
+  .home .content p {
+    font-size: 1.2rem;
+  }
+  
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
