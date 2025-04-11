@@ -1,0 +1,111 @@
+/* 研学相册部分样式修复 */
+
+/* 修复标题和字体样式 */
+.gallery .heading span {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+/* 修复过滤器按钮样式 */
+.gallery .filter-btn {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  border-radius: 30px;
+  padding: 0.8rem 1.5rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  margin: 0 0.3rem;
+  cursor: pointer;
+}
+
+.gallery .filter-btn.active,
+.gallery .filter-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* 修复相册项内容样式 */
+.gallery-item .overlay-content h3 {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item .overlay-content p {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.gallery-item .gallery-link {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.gallery-item .gallery-link:hover {
+  background: #fff;
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* 修复标签样式 */
+.gallery-tags span {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-right: 1rem;
+}
+
+/* 修复按钮样式 */
+.gallery-actions button {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-actions button:hover {
+  color: var(--primary-color);
+}
+
+/* 确保相册项布局正确 */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .gallery .filter-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

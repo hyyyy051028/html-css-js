@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="header-fix.css">
   <link rel="stylesheet" href="home-background.css">
   <link rel="stylesheet" href="video-player.css">
+  <link rel="stylesheet" href="gallery-styles.css">
+  <link rel="stylesheet" href="sections-fix.css">
+  <link rel="stylesheet" href="gallery-fix.css">
+  <link rel="stylesheet" href="map-styles.css">
   
   <!-- 关键内联样式，确保样式生效 -->
   <style>
@@ -582,11 +586,11 @@
   <!-- 首页区域 -->
   <section class="home" id="home">
     <div class="content" data-aos="fade-up" data-aos-duration="1000">
-      <h3>未来旅图 · 研学之旅</h3>
-      <p>探索知识的旅程，塑造未来的力量</p>
-      <p>和我们一起体验寓教于乐的研学之旅</p>
+      <h3>未来旅图 · 职业生涯规划之旅</h3>
+      <p>一趟旅途，一生的职业选择</p>
+      <p>一场职业认知启蒙之旅</p>
       <div class="btn-container">
-        <a href="#packages" class="btn">查看研学路线</a>
+        <a href="#packages" class="btn">职业启航：一天大学生专业体验</a>
         <a href="#career" class="btn btn-career">开启职业生涯规划</a>
       </div>
     </div>
@@ -715,26 +719,28 @@
   <section class="packages" id="packages">
     <div class="container">
       <h1 class="heading">
-        <span>特色研学路线</span>
+        <span>职业启航：一天大学生专业体验</span>
       </h1>
       
       <div class="filter-buttons" data-aos="fade-up" data-aos-delay="100">
         <button class="filter-btn active" data-filter="all">全部路线</button>
-        <button class="filter-btn" data-filter="science">科技探索</button>
-        <button class="filter-btn" data-filter="nature">自然探索</button>
-        <button class="filter-btn" data-filter="history">历史文化</button>
-        <button class="filter-btn" data-filter="art">艺术体验</button>
+        <button class="filter-btn" data-filter="communication">通信工程</button>
+        <button class="filter-btn" data-filter="computer">计算机科学与技术</button>
+        <button class="filter-btn" data-filter="electronic">电子信息工程</button>
+        <button class="filter-btn" data-filter="security">网络安全</button>
+        <button class="filter-btn" data-filter="electrical">电气工程</button>
+        <button class="filter-btn" data-filter="career">职业探索营</button>
       </div>
 
       <div class="box-container" data-aos="fade-up" data-aos-delay="200">
-        <div class="box" data-category="science">
+        <div class="box" data-category="communication">
           <div class="image-container">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/通信.jpg" alt="科技探索">
             <div class="discount">
               <span>-20%</span>
             </div>
             <div class="category">
-              <span>科技</span>
+ 
             </div>
           </div>
           <div class="content">
@@ -746,12 +752,12 @@
               <i class="fas fa-star-half-alt"></i>
               <span>(120)</span>
             </div>
-            <h3>前沿科技探索之旅</h3>
-            <p>参观顶尖科技实验室，体验机器人编程与人工智能应用，激发创新思维与科学探索精神。</p>
+            <h3>通信工程</h3>
+            <p>参观西安邮电大学顶尖通信实验室，了解通信工程的基本知识和实践经验。</p>
             <div class="info">
               <div class="info-item">
                 <i class="fas fa-clock"></i>
-                <span>3天</span>
+                <span>1天</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-user-friends"></i>
@@ -759,7 +765,7 @@
               </div>
               <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>北京</span>
+                <span>西安</span>
               </div>
             </div>
             <div class="price-container">
@@ -772,14 +778,14 @@
           </div>
         </div>
 
-        <div class="box" data-category="science">
+        <div class="box" data-category="computer">
           <div class="image-container">
-            <img src="images/p-2.jpg" alt="科学实验">
+            <img src="images/计算机.jpg" alt="科学实验">
             <div class="discount">
               <span>-15%</span>
             </div>
             <div class="category">
-              <span>科学</span>
+        
             </div>
           </div>
           <div class="content">
@@ -791,12 +797,12 @@
               <i class="far fa-star"></i>
               <span>(85)</span>
             </div>
-            <h3>趣味科学实验营</h3>
-            <p>动手做实验，探索物理、化学、生物等领域的科学原理，培养科学思维和实验能力。</p>
+            <h3>计算机科学与技术</h3>
+            <p>在西安邮电大学最优秀的硬件软件实验室参观，了解最棒的前沿技术</p>
             <div class="info">
               <div class="info-item">
                 <i class="fas fa-clock"></i>
-                <span>2天</span>
+                <span>1天</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-user-friends"></i>
@@ -804,7 +810,7 @@
               </div>
               <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>上海</span>
+                <span>西安邮电大学</span>
               </div>
             </div>
             <div class="price-container">
@@ -817,14 +823,14 @@
           </div>
         </div>
 
-        <div class="box" data-category="nature">
+        <div class="box" data-category="electronic">
           <div class="image-container">
-            <img src="images/p-3.jpg" alt="自然探索">
+            <img src="images/电子信息工程.jpg" alt="自然探索">
             <div class="discount">
               <span>-10%</span>
             </div>
             <div class="category">
-              <span>自然</span>
+          
             </div>
           </div>
           <div class="content">
@@ -836,12 +842,12 @@
               <i class="fas fa-star"></i>
               <span>(156)</span>
             </div>
-            <h3>生态自然探索之旅</h3>
-            <p>走进国家自然保护区，在专业导师带领下认识生物多样性，学习生态保护知识。</p>
+            <h3>电子信息工程</h3>
+            <p>在西安邮电大学走进最优秀的嵌入式实验室，用单片机点亮世界的蓝图</p>
             <div class="info">
               <div class="info-item">
                 <i class="fas fa-clock"></i>
-                <span>4天</span>
+                <span>1天</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-user-friends"></i>
@@ -849,7 +855,7 @@
               </div>
               <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>成都</span>
+                <span>西安邮电大学</span>
               </div>
             </div>
             <div class="price-container">
@@ -862,14 +868,14 @@
           </div>
         </div>
 
-        <div class="box" data-category="history">
+        <div class="box" data-category="security">
           <div class="image-container">
-            <img src="images/p-4.jpg" alt="历史文化">
+            <img src="images/网安.jpg" alt="历史文化">
             <div class="featured">
               <span>热门</span>
             </div>
             <div class="category">
-              <span>历史</span>
+          
             </div>
           </div>
           <div class="content">
@@ -881,12 +887,12 @@
               <i class="fas fa-star-half-alt"></i>
               <span>(210)</span>
             </div>
-            <h3>中华历史文化之旅</h3>
-            <p>参观历史博物馆和文化遗址，通过沉浸式体验活动了解中华五千年文明发展史。</p>
+            <h3>网络安全工程</h3>
+            <p>走进西安乃至全国最优秀的网络安全专业的课堂，与一切网络攻击博弈到底！</p>
             <div class="info">
               <div class="info-item">
                 <i class="fas fa-clock"></i>
-                <span>5天</span>
+                <span>1天</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-user-friends"></i>
@@ -907,11 +913,11 @@
           </div>
         </div>
 
-        <div class="box" data-category="art">
+        <div class="box" data-category="electrical">
           <div class="image-container">
-            <img src="images/p-5.jpg" alt="艺术体验">
+            <img src="images/电气工程.jpg" alt="艺术体验">
             <div class="category">
-              <span>艺术</span>
+
             </div>
           </div>
           <div class="content">
@@ -923,20 +929,20 @@
               <i class="far fa-star"></i>
               <span>(78)</span>
             </div>
-            <h3>艺术创作与欣赏之旅</h3>
-            <p>参观著名艺术馆，在专业艺术家指导下进行创作实践，培养艺术鉴赏能力和创造力。</p>
+            <h3>电气工程及其自动化</h3>
+            <p>看看最热门的工科专业都在学些什么，在西安邮电看看电气工程与自动化能摩擦出怎样的火花</p>
             <div class="info">
               <div class="info-item">
                 <i class="fas fa-clock"></i>
-                <span>3天</span>
+                <span>1天</span>
               </div>
-              <div class="info-item">
+              <div class="info-item"> 
                 <i class="fas fa-user-friends"></i>
                 <span>适合 8-16岁</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>杭州</span>
+                <span>西安</span>
               </div>
             </div>
             <div class="price-container">
@@ -949,7 +955,7 @@
           </div>
         </div>
 
-        <div class="box" data-category="science">
+        <div class="box" data-category="career">
           <div class="image-container">
             <img src="images/p-6.jpg" alt="职业体验">
             <div class="discount">
@@ -968,7 +974,7 @@
               <i class="fas fa-star"></i>
               <span>(95)</span>
             </div>
-            <h3>未来职业探索营</h3>
+            <h3>深度职业探索营</h3>
             <p>走进不同行业企业，体验多种职业角色，在专业生涯规划师指导下探索自己的职业兴趣和发展方向。</p>
             <div class="info">
               <div class="info-item">
@@ -981,7 +987,7 @@
               </div>
               <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>广州</span>
+                <span>西安</span>
               </div>
             </div>
             <div class="price-container">
@@ -1171,29 +1177,30 @@
       
       <div class="gallery-filter" data-aos="fade-up">
         <button class="filter-btn active" data-filter="all">全部</button>
-        <button class="filter-btn" data-filter="science">科技探索</button>
-        <button class="filter-btn" data-filter="nature">自然探索</button>
-        <button class="filter-btn" data-filter="history">历史文化</button>
-        <button class="filter-btn" data-filter="art">艺术体验</button>
-        <button class="filter-btn" data-filter="career">职业体验</button>
+        <button class="filter-btn" data-filter="communication">通信工程</button>
+        <button class="filter-btn" data-filter="computer">计算机科学与技术</button>
+        <button class="filter-btn" data-filter="electronic">电子信息工程</button>
+        <button class="filter-btn" data-filter="security">网络安全</button>
+        <button class="filter-btn" data-filter="electrical">电气工程</button>
+        <button class="filter-btn" data-filter="career">职业探索营</button>
       </div>
 
       <div class="gallery-container" data-aos="fade-up" data-aos-delay="200">
-        <div class="gallery-item" data-category="science">
+        <div class="gallery-item" data-category="communication">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/1.jpg" alt="通信工程">
             <div class="gallery-overlay">
               <div class="overlay-content">
-                <h3>科技研学营</h3>
-                <p>学生们在机器人实验室体验编程与创新</p>
+                <h3>通信工程专业体验日</h3>
+                <p>学生们在西安邮电大学通信工程实验室体验信号与系统</p>
                 <a href="#" class="gallery-link">查看详情</a>
               </div>
             </div>
           </div>
           <div class="gallery-info">
             <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 科技</span>
-              <span><i class="fas fa-map-marker-alt"></i> 北京</span>
+              <span><i class="fas fa-tag"></i> 通信工程</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安邮电大学</span>
             </div>
             <div class="gallery-actions">
               <button class="like-btn"><i class="far fa-heart"></i> <span>142</span></button>
@@ -1202,21 +1209,21 @@
           </div>
         </div>
         
-        <div class="gallery-item" data-category="nature">
+        <div class="gallery-item" data-category="computer">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/2.jpg" alt="计算机科学与技术">
             <div class="gallery-overlay">
               <div class="overlay-content">
-                <h3>自然探索营</h3>
-                <p>在国家自然保护区学习生态知识</p>
+                <h3>计算机科学与技术实践日</h3>
+                <p>在西安邮电大学计算机学院体验编程与算法</p>
                 <a href="#" class="gallery-link">查看详情</a>
               </div>
             </div>
           </div>
           <div class="gallery-info">
             <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 自然</span>
-              <span><i class="fas fa-map-marker-alt"></i> 成都</span>
+              <span><i class="fas fa-tag"></i> 计算机</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安邮电大学</span>
             </div>
             <div class="gallery-actions">
               <button class="like-btn"><i class="far fa-heart"></i> <span>98</span></button>
@@ -1225,21 +1232,21 @@
           </div>
         </div>
         
-        <div class="gallery-item" data-category="history">
+        <div class="gallery-item" data-category="electronic">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/3.jpg" alt="电子信息工程">
             <div class="gallery-overlay">
               <div class="overlay-content">
-                <h3>历史文化之旅</h3>
-                <p>参观博物馆，了解历史文化遗产</p>
+                <h3>电子信息工程实践日</h3>
+                <p>在西安邮电大学电子工程实验室体验单片机开发</p>
                 <a href="#" class="gallery-link">查看详情</a>
               </div>
             </div>
           </div>
           <div class="gallery-info">
             <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 历史</span>
-              <span><i class="fas fa-map-marker-alt"></i> 西安</span>
+              <span><i class="fas fa-tag"></i> 电子信息</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安邮电大学</span>
             </div>
             <div class="gallery-actions">
               <button class="like-btn"><i class="far fa-heart"></i> <span>156</span></button>
@@ -1248,21 +1255,21 @@
           </div>
         </div>
         
-        <div class="gallery-item" data-category="science">
+        <div class="gallery-item" data-category="security">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/4.jpg" alt="网络安全">
             <div class="gallery-overlay">
               <div class="overlay-content">
-                <h3>科学实验课</h3>
-                <p>在实验室中进行有趣的科学实验</p>
+                <h3>网络安全实践日</h3>
+                <p>在西安邮电大学网络安全实验室体验网络攻防技术</p>
                 <a href="#" class="gallery-link">查看详情</a>
               </div>
             </div>
           </div>
           <div class="gallery-info">
             <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 科学</span>
-              <span><i class="fas fa-map-marker-alt"></i> 上海</span>
+              <span><i class="fas fa-tag"></i> 网络安全</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安邮电大学</span>
             </div>
             <div class="gallery-actions">
               <button class="like-btn"><i class="far fa-heart"></i> <span>87</span></button>
@@ -1271,21 +1278,21 @@
           </div>
         </div>
         
-        <div class="gallery-item" data-category="art">
+        <div class="gallery-item" data-category="electrical">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/5.jpg" alt="电气工程">
             <div class="gallery-overlay">
               <div class="overlay-content">
-                <h3>艺术创作营</h3>
-                <p>学生们在艺术家指导下进行创作</p>
+                <h3>电气工程实践日</h3>
+                <p>在西安邮电大学电气工程实验室体验自动化控制技术</p>
                 <a href="#" class="gallery-link">查看详情</a>
               </div>
             </div>
           </div>
           <div class="gallery-info">
             <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 艺术</span>
-              <span><i class="fas fa-map-marker-alt"></i> 杭州</span>
+              <span><i class="fas fa-tag"></i> 电气工程</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安邮电大学</span>
             </div>
             <div class="gallery-actions">
               <button class="like-btn"><i class="far fa-heart"></i> <span>112</span></button>
@@ -1294,21 +1301,21 @@
           </div>
         </div>
         
-        <div class="gallery-item" data-category="nature">
+        <div class="gallery-item" data-category="career">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/4.jpg" alt="职业探索营">
             <div class="gallery-overlay">
               <div class="overlay-content">
-                <h3>团队建设活动</h3>
-                <p>通过户外挑战培养团队合作精神</p>
+                <h3>职业探索营</h3>
+                <p>在西安邮电大学职业生涯中心体验职业规划与发展</p>
                 <a href="#" class="gallery-link">查看详情</a>
               </div>
             </div>
           </div>
           <div class="gallery-info">
             <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 团建</span>
-              <span><i class="fas fa-map-marker-alt"></i> 深圳</span>
+              <span><i class="fas fa-tag"></i> 职业探索</span>
+              <span><i class="fas fa-map-marker-alt"></i> 西安邮电大学</span>
             </div>
             <div class="gallery-actions">
               <button class="like-btn"><i class="far fa-heart"></i> <span>78</span></button>
@@ -1319,7 +1326,7 @@
         
         <div class="gallery-item" data-category="career">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/7.jpg" alt="科技探索">
             <div class="gallery-overlay">
               <div class="overlay-content">
                 <h3>职业体验日</h3>
@@ -1342,7 +1349,7 @@
         
         <div class="gallery-item" data-category="science">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/2.jpg" alt="科技探索">
             <div class="gallery-overlay">
               <div class="overlay-content">
                 <h3>研学成果展</h3>
@@ -1365,7 +1372,7 @@
         
         <div class="gallery-item" data-category="history">
           <div class="gallery-image">
-            <img src="images/p-1.jpg" alt="科技探索">
+            <img src="images/3.jpg" alt="科技探索">
             <div class="gallery-overlay">
               <div class="overlay-content">
                 <h3>研学分享会</h3>
@@ -1599,8 +1606,8 @@
             </div>
             <div class="card-content">
               <h3>电话咨询</h3>
-              <p>400-888-7766 (工作日 9:00-18:00)</p>
-              <p>138-8888-9999 (紧急联系)</p>
+              <p>18142315518 (工作日 9:00-18:00)</p>
+            
             </div>
           </div>
           
@@ -1610,8 +1617,8 @@
             </div>
             <div class="card-content">
               <h3>电子邮箱</h3>
-              <p>info@futuretravelmap.com</p>
-              <p>service@futuretravelmap.com</p>
+              <p>2167313615@edu.com</p>
+             
             </div>
           </div>
           
@@ -1706,7 +1713,7 @@
       <div class="map-container" data-aos="fade-up">
         <h3>我们的位置</h3>
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.1576090673206!2d108.91391731497928!3d34.1321608804775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366379eb79efa4e9%3A0x5c4a553915a9b3d8!2z6KW_5a6J6YKu55S15aSn5a2m!5e0!3m2!1szh-CN!2scn!4v1617265345678!5m2!1szh-CN!2scn" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://map.baidu.com/poi/%E8%A5%BF%E5%AE%89%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A6/@12608018.095,4036942.31,19z?uid=a45f647441c60a5eb1543399&ugc_type=3&ugc_ver=1&device_ratio=2&wd=%E8%A5%BF%E5%AE%89%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A6&da_src=shareurl" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen scrolling="no"></iframe>
           <div class="map-marker">
             <i class="fas fa-map-marker-alt"></i>
             <span>西安邮电大学</span>
@@ -1717,20 +1724,7 @@
   </section>
 
   <!-- 品牌赞助 -->
-  <section class="brand-container">
 
-    <div class="swiper-container brand-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
-      </div>
-    </div>
-
-  </section>
 
   <!-- 合作伙伴 -->
   <section class="partners" id="partners">
@@ -1748,13 +1742,13 @@
           <h3>教育机构</h3>
           <div class="partner-list">
             <div class="partner-item">
-              <img src="images/1.jpg" alt="教育机构合作伙伴">
+              <img src="images/8.jpg" alt="教育机构合作伙伴">
               <div class="partner-overlay">
                 <h4>北京师范大学</h4>
               </div>
             </div>
             <div class="partner-item">
-              <img src="images/2.jpg" alt="教育机构合作伙伴">
+              <img src="images/8.jpg" alt="教育机构合作伙伴">
               <div class="partner-overlay">
                 <h4>清华大学</h4>
               </div>
@@ -1766,13 +1760,13 @@
           <h3>科技企业</h3>
           <div class="partner-list">
             <div class="partner-item">
-              <img src="images/3.jpg" alt="科技企业合作伙伴">
+              <img src="images/8.jpg" alt="科技企业合作伙伴">
               <div class="partner-overlay">
                 <h4>华为技术</h4>
               </div>
             </div>
             <div class="partner-item">
-              <img src="images/4.jpg" alt="科技企业合作伙伴">
+              <img src="images/8.jpg" alt="科技企业合作伙伴">
               <div class="partner-overlay">
                 <h4>腾讯科技</h4>
               </div>
@@ -1784,13 +1778,13 @@
           <h3>文化机构</h3>
           <div class="partner-list">
             <div class="partner-item">
-              <img src="images/5.jpg" alt="文化机构合作伙伴">
+              <img src="images/8.jpg" alt="文化机构合作伙伴">
               <div class="partner-overlay">
                 <h4>国家博物馆</h4>
               </div>
             </div>
             <div class="partner-item">
-              <img src="images/6.jpg" alt="文化机构合作伙伴">
+              <img src="images/8.jpg" alt="文化机构合作伙伴">
               <div class="partner-overlay">
                 <h4>故宫博物院</h4>
               </div>
@@ -1855,9 +1849,9 @@
           <div class="footer-contact">
             <h3>联系信息</h3>
             <ul>
-              <li><i class="fas fa-map-marker-alt"></i> <span>北京市海淀区中关村大街 15 号创业大厦 B 座 5 层</span></li>
-              <li><i class="fas fa-phone-alt"></i> <span>400-888-7766</span></li>
-              <li><i class="fas fa-envelope"></i> <span>info@futuretravelmap.com</span></li>
+              <li><i class="fas fa-map-marker-alt"></i> <span> 西安邮电大学创新创业基地二层</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>18142315518</span></li>
+              <li><i class="fas fa-envelope"></i> <span>2167313615@edu.com</span></li>
               <li><i class="fas fa-clock"></i> <span>工作时间: 周一至周五 9:00-18:00</span></li>
             </ul>
             <div class="footer-newsletter">
