@@ -17,9 +17,6 @@
   <link rel="stylesheet" href="header-fix.css">
   <link rel="stylesheet" href="home-background.css">
   <link rel="stylesheet" href="video-player.css">
-  <link rel="stylesheet" href="sections-fix.css">
-  <link rel="stylesheet" href="gallery-styles.css">
-  <link rel="stylesheet" href="video-placeholder.css">
   
   <!-- 关键内联样式，确保样式生效 -->
   <style>
@@ -41,6 +38,52 @@
     /* 添加米白色背景 */
     body {
       background-color: var(--background-color);
+    }
+    
+    /* 地图标记样式 */
+    .map {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .map-marker {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      animation: pulse 2s infinite;
+    }
+    
+    .map-marker i {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: white;
+    }
+    
+    .map-marker span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
     
     /* 标题样式 */
@@ -89,6 +132,101 @@
     .review-intro p {
       font-size: 1.1rem;
       color: var(--text-light);
+    }
+    
+    /* 视频播放器样式 */
+    .featured-video {
+      padding: 5rem 0;
+      background-color: var(--light-color);
+    }
+    
+    .video-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+      align-items: center;
+    }
+    
+    .main-video-container {
+      flex: 1 1 600px;
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .main-video {
+      width: 100%;
+      display: block;
+      border-radius: var(--border-radius);
+      object-fit: cover;
+      height: 400px;
+    }
+    
+    .video-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .control-btn {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .control-btn:hover {
+      background-color: var(--primary-color);
+    }
+    
+    .video-info {
+      flex: 1 1 300px;
+      padding: 1.5rem;
+    }
+    
+    .video-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+    }
+    
+    .video-tags {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .video-tags span {
+      background-color: var(--light-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .video-tags i {
+      color: var(--primary-color);
+    }
+    
+    .video-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
     
     .review-stats {
@@ -465,7 +603,7 @@
       
       <div class="video-wrapper" data-aos="fade-up" data-aos-delay="200">
         <div class="main-video-container">
-          <video src="images/vid-5.mp4" controls poster="images/video-poster.jpg" class="main-video"></video>
+          <video src="images/vid-5.mp4" controls autoplay muted loop class="main-video"></video>
           <div class="video-controls">
             <button class="control-btn play-btn"><i class="fas fa-play"></i></button>
             <button class="control-btn fullscreen-btn"><i class="fas fa-expand"></i></button>
@@ -1043,7 +1181,7 @@
       <div class="gallery-container" data-aos="fade-up" data-aos-delay="200">
         <div class="gallery-item" data-category="science">
           <div class="gallery-image">
-            <img src="images/g-1.jpg" alt="科技研学营">
+            <img src="images/p-1.jpg" alt="科技探索">
             <div class="gallery-overlay">
               <div class="overlay-content">
                 <h3>科技研学营</h3>
@@ -1066,7 +1204,7 @@
         
         <div class="gallery-item" data-category="nature">
           <div class="gallery-image">
-            <img src="images/g-2.jpg" alt="自然探索营">
+            <img src="images/p-1.jpg" alt="科技探索">
             <div class="gallery-overlay">
               <div class="overlay-content">
                 <h3>自然探索营</h3>
@@ -1089,7 +1227,7 @@
         
         <div class="gallery-item" data-category="history">
           <div class="gallery-image">
-            <img src="images/g-3.jpg" alt="历史文化之旅">
+            <img src="images/p-1.jpg" alt="科技探索">
             <div class="gallery-overlay">
               <div class="overlay-content">
                 <h3>历史文化之旅</h3>
@@ -1104,145 +1242,7 @@
               <span><i class="fas fa-map-marker-alt"></i> 西安</span>
             </div>
             <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>76</span></button>
-              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="science">
-          <div class="gallery-image">
-            <img src="images/g-4.jpg" alt="科学实验课">
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h3>科学实验课</h3>
-                <p>动手做实验，探索科学奥秘</p>
-                <a href="#" class="gallery-link">查看详情</a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 科学</span>
-              <span><i class="fas fa-map-marker-alt"></i> 上海</span>
-            </div>
-            <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>112</span></button>
-              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="art">
-          <div class="gallery-image">
-            <img src="images/g-5.jpg" alt="艺术创作营">
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h3>艺术创作营</h3>
-                <p>探索艺术创作，发现美的力量</p>
-                <a href="#" class="gallery-link">查看详情</a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 艺术</span>
-              <span><i class="fas fa-map-marker-alt"></i> 杭州</span>
-            </div>
-            <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>89</span></button>
-              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="career">
-          <div class="gallery-image">
-            <img src="images/g-6.jpg" alt="团队建设活动">
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h3>团队建设活动</h3>
-                <p>培养团队协作精神与领导力</p>
-                <a href="#" class="gallery-link">查看详情</a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 团队</span>
-              <span><i class="fas fa-map-marker-alt"></i> 深圳</span>
-            </div>
-            <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>105</span></button>
-              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="career">
-          <div class="gallery-image">
-            <img src="images/g-7.jpg" alt="职业体验日">
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h3>职业体验日</h3>
-                <p>走进企业，体验不同职业角色</p>
-                <a href="#" class="gallery-link">查看详情</a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 职业</span>
-              <span><i class="fas fa-map-marker-alt"></i> 广州</span>
-            </div>
-            <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>67</span></button>
-              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="science">
-          <div class="gallery-image">
-            <img src="images/g-8.jpg" alt="研学成果展">
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h3>研学成果展</h3>
-                <p>展示学生研学项目的创新成果</p>
-                <a href="#" class="gallery-link">查看详情</a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 成果</span>
-              <span><i class="fas fa-map-marker-alt"></i> 南京</span>
-            </div>
-            <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>94</span></button>
-              <button class="share-btn"><i class="fas fa-share-alt"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="history">
-          <div class="gallery-image">
-            <img src="images/g-9.jpg" alt="研学分享会">
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h3>研学分享会</h3>
-                <p>学生们分享研学旅行的收获与感悟</p>
-                <a href="#" class="gallery-link">查看详情</a>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-tags">
-              <span><i class="fas fa-tag"></i> 分享</span>
-              <span><i class="fas fa-map-marker-alt"></i> 重庆</span>
-            </div>
-            <div class="gallery-actions">
-              <button class="like-btn"><i class="far fa-heart"></i> <span>83</span></button>
+              <button class="like-btn"><i class="far fa-heart"></i> <span>156</span></button>
               <button class="share-btn"><i class="fas fa-share-alt"></i></button>
             </div>
           </div>
@@ -1589,7 +1589,7 @@
             </div>
             <div class="card-content">
               <h3>总部地址</h3>
-              <p>北京市海淀区中关村大街 15 号创业大厦 B 座 5 层</p>
+              <p>西安邮电大学</p>
             </div>
           </div>
           
@@ -1706,7 +1706,11 @@
       <div class="map-container" data-aos="fade-up">
         <h3>我们的位置</h3>
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878459418!3d40.74076737932881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzI2LjgiTiA3NMKwMDAnMDkuMCJX!5e0!3m2!1sen!2sus!4v1555196958019!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.1576090673206!2d108.91391731497928!3d34.1321608804775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366379eb79efa4e9%3A0x5c4a553915a9b3d8!2z6KW_5a6J6YKu55S15aSn5a2m!5e0!3m2!1szh-CN!2scn!4v1617265345678!5m2!1szh-CN!2scn" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-marker">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>西安邮电大学</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1894,8 +1898,6 @@
   <script src="simplified-script.js"></script>
   <!-- 图片修复脚本 -->
   <script src="fix-images.js"></script>
-  <!-- 部署修复脚本 -->
-  <script src="deploy-fix.js"></script>
 </body>
 
 </html>
